@@ -12,7 +12,7 @@ import {
   exports: [Logger],
 })
 export class LoggerModule {
-  static register(options: {
+  static forRoot(options: {
     notification?: { level?: LogLevel } & (
       | { type: "auto" }
       | {
@@ -55,6 +55,7 @@ export class LoggerModule {
 
     return {
       module: LoggerModule,
+      global: true,
       providers: [
         {
           provide: NOTIFICATION_LEVEL,
